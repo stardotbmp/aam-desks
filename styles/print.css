@@ -1,0 +1,111 @@
+* {
+	font-size: 8pt;
+}
+.tabwindow {
+	border: none;
+}
+
+input[name='view']:not(:checked) + label, input[name='view']:not(:checked) ~ label i {
+	display: none;
+}
+
+.tabs, .developmentTodo, .deskSnippet, input[name='zoom'], select[name='staffSelector'] {
+	display: none !important;
+}
+
+#locations .buttons > *, .buttons {
+	position: static;
+}
+
+.teamRoster, .key input, .key label, .slider {
+	display: none;
+}
+
+.desks {
+	font-size: 6pt;
+}
+
+.desk {
+	stroke: black;
+	stroke-width: 1px;
+}
+.desks rect {
+	opacity: 0.75;
+}
+
+.hiliteCircle {
+	display: none;
+}
+
+.staff-data {
+	display: none;
+}
+
+summary, button {
+	display: none;
+}
+
+[data-mode] .desks [data-proposed-free], [data-mode] .desks [data-free]{
+	stroke: black;
+}
+
+#deskmoves .picker {
+	display: none;
+}
+
+#deskmoves .date {
+	display: table-cell !important;
+}
+
+#deskmoves table, #deskmoves table td {
+	padding: 0;
+}
+
+.desks .initials, .desks .index {
+	font-weight: normal;
+}
+
+.tabwindow button, .tabwindow select, .tabwindow input, .viewToggle label {
+	font-weight: 300 !important;
+}
+.tabwindow button, .tabwindow select, .tabwindow input {
+	background: none;
+	padding-left: 0 !important;
+	font-family: Oswald, 'Open Sans', sans-serif;
+	font-size: 0.85em;
+	margin-left: 0;
+}
+
+.tabwindow .viewToggle::after {
+	content: "–";
+}
+
+.viewToggle li label i {
+	display: none !important;
+}
+
+#locations .key, #locations .key .teamName, #locations .key .count, #locations .key .teamId {
+	font-size: 0.85em;
+}
+
+#locations .key li {
+	min-width: 20%;
+}
+
+#locations .key {
+	/*width: 50%;*/
+	position: relative;
+	-webkit-transform: scale(0.75);
+	-webkit-transform-origin: top left;
+}
+
+.keySwatch {
+	border: 0.1ex black solid;
+}
+
+.deskUnit {
+		
+	font-family: Arial !important;
+	font-weight: bold !important;
+
+}

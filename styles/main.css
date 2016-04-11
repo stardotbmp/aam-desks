@@ -1,0 +1,1449 @@
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600|Oswald:300,400,700);*/
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+address,
+img,
+fieldset,
+form,
+label,
+legend,
+table,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-weight: 300;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	font-family: "Allies Morrison Futura ND", 'Open Sans', sans-serif;
+	font-size: 100%;
+	line-height: 1.125em;
+	margin: 5rem 0 0;
+	padding: 0;
+	color: #666;
+	zoom: 115%;
+	overflow-y: scroll;
+}
+
+body[data-unauth=true] .tabwindow {
+	border-color: red;
+}
+
+body[data-unauth=true] .tabwindow #locations,
+body[data-unauth=true] .tabwindow #deskmoves,
+body[data-unauth=true] .tabwindow #deskstats,
+body[data-unauth=true] .tabwindow::after,
+body[data-unauth=true] .tabs {
+	display: none;
+}
+
+body[data-unauth=true] .tabwindow::before,
+body[data-unauth=true] #auth {
+	color: red;
+	font-weight: bold;
+}
+
+body[data-unauth=true] #auth p {
+	margin: 2rem 0;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+body[data-unauth=true] #auth p + p {
+	margin-top: 3rem
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 600;
+}
+
+p + p {
+	margin-top: 0.5em;
+}
+
+.dev {
+	display: none;
+}
+
+.blocklabel {
+	font-weight: 600;
+	line-height: 2rem;
+	-webkit-flex: 0;
+}
+
+.blocklabel select {
+	display: block;
+}
+
+.blocklabel .labeltext {
+	white-space: nowrap;
+}
+
+.tabwindow {
+	border: 1px solid #999;
+	border-radius: 0.5rem;
+	position: relative;
+	max-width: 980px;
+	margin: 5rem auto;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-left: 0.5rem;
+}
+
+.tabwindow::after {
+	content: "user: " attr(data-email);
+	color: #999;
+	font-size: 0.75rem;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	bottom: 0;
+	right: 0;
+	text-align: right;
+	-webkit-transform: translate(-0.5rem,2rem);
+	transform: translate(-0.5rem,2rem);
+	font-style: italic
+}
+
+.tab {
+	padding: 1rem 2rem;
+	font-size: 0.85rem;
+	position: relative;
+}
+
+.tab,
+.tab:target ~ .tab {
+	display: none;
+}
+
+.default,
+.tab:target {
+	display: block;
+}
+
+.tab h1 {
+	font-size: 1.5rem;
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+.tabs {
+	list-style: none;
+	display: -webkit-flex;
+	text-indent: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: -30px;
+	left: 35px;
+	right: 0;
+	font-size: 1em;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+}
+
+.tabs li {
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.tabs li a[href="#default"] {
+	font-size: 0.85em;
+	font-weight: bold;
+}
+
+.tabs li a {
+	text-decoration: none;
+	margin: 0 20px 0 0;
+	color: #333;
+	font-size: 0.85em;
+	font-weight: 400;
+}
+
+.tabs .refresh {
+	-webkit-flex: 1;
+	position: relative;
+	color: #333;
+}
+
+.tabs .refresh i,
+.tabs a i {
+	cursor: pointer;
+	font-weight: lighter;
+	font-size: 0.75em;
+	position: relative;
+	top: -0.1em;
+}
+
+.tabs .refresh i {
+	position: absolute;
+	right: 10px;
+	top: auto;
+	bottom: 0;
+	font-size: 0.85em;
+}
+
+a:target {
+	font-weight: 600;
+}
+
+select {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.grouptable {
+	display: -webkit-flex;
+	-webkit-align-items: flex-start;
+}
+
+.groupList {
+	-webkit-flex: 1;
+	padding-right: 5px;
+}
+
+.groupList:last-child {
+	padding-right: 0;
+}
+
+.groupList ul {
+	text-indent: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0.75em;
+}
+
+.groupList li {
+	white-space: nowrap;
+}
+
+.groupList li label {
+	white-space: nowrap;
+	max-width: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+form {
+	display: inline-block;
+}
+
+select,
+input[type='submit'] {
+	border: none;
+	color: #333;
+	background: #ccc;
+	-webkit-appearance: none;
+}
+
+.personneldata + .grouptable {
+	border-top: 1px dotted #333;
+	padding-top: 15px;
+}
+
+.personneldata {
+	padding-bottom: 15px;
+	display: -webkit-flex;
+	-webkit-justify-content: space-between;
+}
+
+.picture {
+	-webkit-order: 5;
+	-webkit-flex: 0;
+	position: relative;
+	margin: 2em 0 0 15px;
+	text-align: center;
+}
+
+.profilepicture {
+	height: 90px;
+	min-width: 90px;
+	display: inline-block;
+	border: none;
+	background-size: cover;
+	border-radius: 95px;
+	position: relative;
+}
+
+.staff-data-block .profilepicture {
+	margin-top: 1em;
+}
+
+.picture::after {
+	display: block;
+	margin-top: 5px;
+	width: 90px;
+	content: 'Completed';
+	text-align: center;
+	text-transform: lowercase;
+	font-size: 0.75em;
+	background: #370;
+	border-radius: 5px;
+	color: white;
+}
+
+.processincomplete .picture::after {
+	content: 'In Progress';
+	background: #980000;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	display: none;
+}
+
+input[type='radio'] ~ label .icon-circle-blank,
+input[type='radio'] ~ label .icon-circle,
+input[type='checkbox'] ~ label .icon-check-empty,
+input[type='checkbox'] ~ label .icon-check {
+	font-size: 1.4em;
+}
+
+input[type='radio'] + label .icon-circle,
+input[type='radio']:checked + label .icon-circle-blank,
+input[type='checkbox'] ~ label .icon-check,
+input[type='checkbox']:checked ~ label .icon-check-empty {
+	display: none;
+}
+
+input[type='radio']:checked + label .icon-circle,
+input[type='checkbox']:checked ~ label .icon-check {
+	display: inline-block;
+}
+
+.key label {
+	position: relative;
+	top: -1.5em;
+}
+
+.key ul {
+	margin-top: 0;
+}
+
+.key input[type=radio] + label i {
+	font-size: 1em;
+	padding-right: 0.25em;
+}
+
+.key label ~ input[type=radio] + label {
+	padding-left: 1.5em;
+}
+
+#progress svg g:nth-child(7) g:nth-child(odd) g:last-child,
+#progress #chart-1 svg g:nth-child(6) g:nth-child(odd) g:last-child {
+	display: none;
+}
+
+#progress svg g:nth-child(7) path,
+#progress #chart-1 svg g:nth-child(6) path {
+	stroke-linejoin: round;
+	stroke-dasharray: 2,2;
+}
+
+#progress svg g:nth-child(7) circle,
+#progress #chart-1 svg g:nth-child(6) circle {
+	display: none;
+}
+
+.floorplans {
+	position: relative;
+	min-height: 377px;
+	max-height: 900px;
+	overflow: auto;
+	width: 930px;
+	margin: 5px 0 10px;
+}
+
+.floorplans[data-zoom="1"] {
+	overflow: hidden;
+}
+
+.floorplan {
+	position: absolute;
+}
+
+.floorplan.desks [data-floor] {
+	display: none;
+}
+
+ul[data-floor] {
+	text-align: left;
+}
+
+.floorplan.lines {
+	display: none;
+}
+
+.floorplan.live,
+.floorplan.desks [data-floor].live {
+	display: inherit;
+}
+
+#locations {
+	padding-top: 4em;
+}
+
+#locations .staff-data-block {
+	display: -webkit-flex;
+}
+
+#locations .staff-data ul:not(.app-person) {
+	list-style: none;
+	padding: 0 0 0 1.5em;
+}
+
+#locations .staff-data-block:last-child .app-person [data-function="primary"] {
+	display: inline-block;
+}
+
+#locations .staff-data-block:not(:last-child) .app-person [data-function="addStaff"] {
+	display: none;
+}
+
+#locations .staff-data-block:last-child .app-person [data-function="addStaff"],
+#locations .staff-data-block .index + .app-person [data-function="addStaff"] {
+	display: inline-block;
+}
+
+#locations .staff-data[data-locked="true"] .app-person [data-function="addStaff"],
+#locations .staff-data[data-locked="true"] .app-person [data-function="editGroup"],
+#locations .staff-data[data-locked="true"] .app-person [data-function="removeStaff"] {
+	display: none;
+}
+
+#locations .staff-data-block img[class="profilepicture "] + ul .app-person [data-function="remove"] {
+	display: none;
+}
+
+#locations .staff-data-block .app-person [data-function="primary"] {
+	display: none;
+}
+
+#locations .staff-data-block:first-child .app-person [data-function="primary"] {
+	display: none;
+}
+.buttons select,
+.buttons button,
+.staff-data-block select {
+	margin-left: 1em;
+	padding: 5px 20px;
+	font-size: 0.75em;
+}
+
+[disabled] {
+	opacity: 0.5;
+}
+
+input[type=submit]:not([disabled=disabled]):active,
+.buttons button:active {
+	background-color: #900;
+	color: #fff;
+}
+
+#locations .buttons .desk-snippet {
+	list-style: none;
+	margin: 0 0 0 0.5em;
+	display: inline-block;
+	line-height: 3em;
+	white-space: nowrap;
+	position: relative;
+	padding: 0 0 0 3em;
+}
+
+.desk-snippet li {
+	padding-right: 0.5em;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 600;
+}
+
+.desk-snippet li:first-child {
+	padding-right: 0;
+	font-size: 0.5em;
+}
+
+.desk-snippet .profilepicture {
+	height: 3em;
+	width: 3em;
+	min-width: 0;
+	position: absolute;
+	top: 0.8em;
+	left: 0.5em;
+}
+
+.modalhide {
+	position: absolute;
+	background: hsla(0,0%,50%,0.25);
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 24px;
+	border: 2px solid white;
+	text-align: center;
+	margin: 1px;
+	display: none;
+	z-index: 30;
+}
+
+.key ul {
+	list-style: none;
+}
+
+.key .keySwatch {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	margin-right: 1ex;
+}
+
+.key li {
+	display: inline-block;
+	min-width: 33%;
+	max-width: 25%;
+	cursor: help;
+}
+
+.key .count {
+	padding: 0 2em 0 1ex;
+}
+
+.key .count::before {
+	content: '(';
+}
+
+.key .count::after {
+	content: ')';
+}
+
+.key li {
+	white-space: nowrap;
+}
+
+.key .teamName {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+li[data-team].active .keySwatch {
+	-webkit-transform: scale(1.25);
+}
+
+.app-person {
+	list-style: none;
+	padding: 1ex 0 0;
+	margin: 0;
+	text-indent: 0;
+}
+
+.app-person li {
+	text-indent: 0;
+	display: inline-block;
+	font-size: 1.25em;
+	margin-right: 1ex;
+}
+
+.app-person li:not([disabled]):hover,
+.groupSelector i:not([disabled]):hover,
+.nameSelector i:not([disabled]):hover,
+.otherdesks:hover {
+	cursor: pointer;
+	color: #c00;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.name .initials {
+	font-weight: 400;
+	padding: 0 1ex;
+}
+
+.name .initials::before,
+.name .initials::after {
+	font-weight: 600;
+	padding: 0 0.5ex;
+}
+
+.name .initials::before {
+	content: '(';
+}
+
+.name .initials::after {
+	content: ')';
+}
+
+.staff-data {
+	display: -webkit-flex;
+	margin-top: 2em;
+	border-top: dashed #ccc 1px;
+	padding-top: 1em;
+}
+
+.staff-data-block + .staff-data-block {
+	margin-left: 20px;
+}
+
+.staff-data ul li {
+	margin-bottom: 1ex;
+}
+
+.staff-data select {
+	margin-left: 0;
+}
+
+.groupList .displayFilter {
+	padding-bottom: 1em;
+	text-align: right;
+}
+
+.groupList .displayFilter {
+	position: absolute;
+	right: 0;
+	margin-right: 2em;
+}
+
+.groupList .displayFilter label {
+	padding-right: 1em;
+}
+
+.groupList .displayFilter li {
+	display: inline-block;
+	padding-left: 2em;
+}
+
+.rolloverTarget {
+	display: inline-block;
+}
+
+.groupList .displayFilter li .rolloverTarget {
+	background-color: #fff;
+	border: 1px solid #666;
+	width: 5em;
+	height: 1em;
+	cursor: pointer;
+	-webkit-transform: scale(1) translate(0,2px);
+	margin: 2px 10px 0;
+}
+
+.groupList .displayFilter li .rolloverTarget:hover {
+	-webkit-transform: scale(1.2) translate(0,2px);
+}
+
+ul.displayFilter[data-filter] li .rolloverTarget {
+	background-color: #666;
+}
+
+.groupList .displayFilter li label {
+	max-width: inherit;
+	line-height: 2em;
+}
+
+summary:focus,
+input:focus {
+	outline: none;
+}
+
+summary {
+	font-size: 0.8em;
+	margin-bottom: 0.5em;
+	text-align: left;
+	z-index: 0;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+	font-weight: 700;
+}
+
+details {
+	margin-bottom: 1em;
+}
+
+.floorplans[data-teamColor=true] ~ .key {
+	display: block;
+}
+
+.key {
+	text-align: center;
+	z-index: 100;
+	position: relative;
+	/*margin-top: 2em;*/
+}
+
+form + .groupList {
+	margin-top: 1em;
+}
+
+.teamRoster .profilepicture {
+	height: 2em;
+	width: 2em;
+	position: relative;
+	bottom: -0.5em;
+	left: -0.5em;
+}
+
+.teamRoster ul {
+	text-align: left;
+}
+
+.toggleSwatches ul {
+	font-size: 0.85em;
+	line-height: 1.5em;
+}
+
+.developmentTodo {
+	position: fixed;
+	top: 1.5em;
+	right: 1.5em;
+	font-size: 0.75em;
+	background: hsla(0, 0%, 100%, 0.85);
+	z-index: 9000;
+
+
+
+	display: none;
+
+
+
+}
+
+.developmentTodo ul {
+	padding-right: 1.5em;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+}
+
+.developmentTodo li {
+	-webkit-order: 0;
+}
+
+.developmentTodo .done {
+	text-decoration: line-through;
+	font-style: italic;
+	opacity: 0.5;
+	color: red;
+	-webkit-order: 1;
+}
+
+#locations .viewToggle, #deskmoves .dateToggle {
+	list-style: none;
+	display: inline-block;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	font-size: 0.8em;
+}
+
+.viewToggle li, .dateToggle li {
+	display: inline-block;
+}
+
+.viewToggle i, .dateToggle i {
+	padding: 0 0.6ex 0 0.9ex;
+	visibility: hidden;
+	display: none;
+	font-size: 1.1em;
+	bottom: -0.1em;
+	position: relative;
+}
+
+.viewToggle label, .dateToggle label {
+	cursor: pointer;
+	font-weight: 400;
+	margin-bottom: 0.3em;
+	color: #999;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+}
+
+.viewToggle input:checked + label i, .dateToggle input:checked + label i  {
+	visibility: visible;
+	display: inline-block;
+}
+
+.viewToggle input:checked + label, .dateToggle input:checked + label  {
+	color: black;
+}
+
+#locations[data-mode="current"] .app-person {
+	visibility: hidden;
+}
+
+#deskmoves[data-mode="future"] .past {
+	display: none;
+}
+
+li[data-function="lock"].hidden ~ li[data-function="add"],
+li[data-function="lock"].hidden ~ li[data-function="remove"] {
+	display: none;
+}
+
+.app-person li.hidden {
+	margin: 0;
+}
+
+.app-person li[disabled] {
+	display: none;
+}
+
+.staff-data-block select:not([data-group="other"]) + .newProjectDetails {
+	display: none;
+}
+
+.staff-data-block span + span {
+	display: none;
+}
+
+.groupSelector {
+	margin-right: 1ex;
+}
+
+.groupSelector select,
+.nameSelector select {
+	margin-right: 1.5ex;
+}
+
+.groupSelector i[data-function],
+.nameSelector i[data-function],
+.notesWidget i[data-function] {
+	font-size: 1.5em;
+	line-height: 1em;
+	display: inline-block;
+	position: relative;
+	padding-left: 0.5ex;
+	top: 3px;
+}
+
+.notesWidget {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	padding-right: 3em;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.notesWidget i[data-function] {
+	position: absolute;
+	top: 0.5em;
+	right: 1.55em;
+}
+
+.notesWidget i[data-function] + i[data-function] {
+	right: 0.45em;
+}
+
+.nameSelector i[data-function] {
+	padding: 0 0.5ex 0 0;
+}
+
+.groupSelector .newProjectDetails {
+	white-space: nowrap;
+}
+
+.groupSelector input {
+	width: 5em;
+	padding: 1ex;
+	background: #eee;
+	border: none;
+	box-shadow: inset 2px 1px 4px 1px #ccc;
+	text-align: center;
+	border-top-left-radius: 1ex;
+	border-bottom-left-radius: 1ex;
+}
+
+.groupSelector input + input {
+	text-align: left;
+	width: 10em;
+	box-shadow: inset -2px 1px 4px 1px #ccc;
+	border-radius: 0;
+	border-top-right-radius: 1ex;
+	border-bottom-right-radius: 1ex;
+}
+
+.groupSelector .projects option::before {
+	content: attr(value);
+}
+
+#locations .staff-data-block .otherdesks {
+	padding-left: 1ex;
+}
+
+.buttons {
+	position: absolute;
+	right: 0;
+	left: 0;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+}
+
+#locations .floorplans + .buttons {
+	text-align: right;
+	padding: 0 25px 0 0;
+	line-height: 3em;
+}
+
+#deskmoves .buttons.top {
+	line-height: 2em;
+	text-align: left;
+	padding-left: 3em;
+	/*font-size: 0.8em;*/
+}
+#deskmoves .buttons {
+	line-height: 4em;
+}
+#deskmoves .buttons .dateToggle li {
+	line-height: 1em;
+}
+
+#locations .floorplans ~ .buttons button {
+	position: static;
+}
+
+.buttons button {
+	border: none;
+	background: #ccc;
+	border-radius: 1ex;
+	color: #333;
+	position: relative;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+}
+
+#locations .floorplans ~ .buttons button:not([disabled]):active {
+	background: #900;
+	color: #fff;
+}
+
+#locations[data-mode="current"] .saveproposal,
+#locations[data-mode="current"] .saveaspdf {
+	display: none;
+}
+
+#locations .staff-data-block .phone i:empty {
+	display: none;
+}
+
+#locations .staff-data-block .notes {
+	font-style: italic;
+	font-size: 0.85em;
+}
+
+#locations .staff-data-block .notes i {
+	margin-right: 0.5ex;
+	cursor: pointer;
+}
+
+#locations .staff-data-block .notes i:active {
+	color: #c00;
+}
+
+#locations .staff-data-block .notesWidget + .notes {
+	display: none;
+}
+
+#deskmoves table {
+	margin-top: 1em;
+	width: 100%;
+	font-size: 0.85em;
+}
+
+#deskmoves th,
+#deskmoves table,
+#deskmoves table td {
+	text-align: left;
+	line-height: 2em;
+	padding: 0.2em 1em;
+	margin-top: 4em;
+}
+
+#deskmoves .name i {
+	margin-right: 1ex;
+}
+
+#deskmoves th {
+	vertical-align: bottom;
+	padding-bottom: 0.5em;
+	font-weight: 400;
+	line-height: 1.25em;
+	font-family: "Allies Morrison Futura ND", Oswald, 'Open Sans', sans-serif;
+	font-size: 1.1em;
+}
+
+#deskmoves tbody tr:nth-child(odd) {
+	background-color: hsla(0, 0%, 85%, 0.15);
+}
+
+#deskmoves td:nth-child(even) {
+	background-color: hsla(0, 0%, 85%, 0.15);
+}
+
+#deskmoves .destinations,
+#deskmoves .origins {
+	font-style: italic;
+	width: 7.5%;
+	text-align: center;
+}
+
+#deskmoves .destinations .hotdesk {
+	display: block;
+	font-size: 0.8em;
+}
+
+#deskmoves .notes {
+	border-left: dotted 1px #ccc;
+}
+
+#deskmoves .origins:empty,
+#deskmoves .destinations:empty {
+	background: hsla(60, 100%, 70%, 0.5);
+}
+
+#deskmoves .origins:empty::before {
+	content: 'NEW';
+}
+
+#deskmoves td.date {
+	display: none;
+}
+
+#deskmoves [data-movetype='additional'] .origins:empty::before {
+	content: 'ADD';
+}
+
+#deskmoves .destinations:empty::before {
+	content: 'LEAVING';
+}
+
+#deskstats {
+	font-size: 0.7em;
+}
+
+#deskstats .statclarity {
+	font-weight: normal;
+	font-style: italic;
+}
+
+/*#deskstats dd.placeholder dt, #deskstats dd.placeholder dd {
+	display: inline;
+	width: 50%;
+
+}*/
+
+#deskstats .statclarity::before {
+	content: ' - ';
+	font-style: normal;
+}
+
+#deskstats .deskrosters table {
+	width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#resolvedstatslist dt {
+	font-weight: bold;
+}
+
+#resolvedstatslist dd {
+	margin-left: 0;
+	padding-left: 0;
+	text-indent: 0;
+}
+
+#resolvedstatslist dd p {
+	font-style: italic;
+}
+
+#resolvedstatslist dd + dt, #resolvedstatslist dl + dt {
+	margin-top: 1em;
+}
+
+#resolvedstatslist p + dl {
+	margin-top: 0.5em;
+}
+
+#resolvedstatslist .rosterName {
+}
+
+#resolvedstatslist .rosterName + .rosterName::before {
+	content: ', ';
+}
+
+dd.empty .rosterName {
+	font-family: monospace;
+}
+
+#resolvedstatslist dl {
+	margin: 0 1em;
+}
+
+#resolvedstatslist dt, #resolvedstatslist dd {
+	clear: both;
+}
+
+#resolvedstatslist .floortally dd, #resolvedstatslist .floortally dt {
+	float: left !important;
+	clear: none;
+}
+
+#resolvedstatslist .floortally dd + dt {
+	margin-top: 0;
+	font-weight: normal;
+}
+
+#deskmoves .buttons {
+	position: absolute;
+	text-align: right;
+	padding-right: 25px;
+}
+
+#deskmoves .buttons button {
+	border: none;
+	border-radius: 5px;
+	padding: 5px 20px;
+	margin-top: 5px;
+	height: 2.5em;
+}
+
+.downloadTable:active {
+	background: #900;
+	color: white;
+}
+
+#deskmoves {
+	padding-bottom: 4em;
+}
+
+.picker input[type='date'] {
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	font-size: 1em;
+	color: #666;
+	background: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+td.picker,
+th.date {
+	width: 15%;
+}
+
+td.name,
+td.team {
+	width: 20%;
+}
+
+td.notes {
+	width: 25%;
+}
+
+#locations .buttons {
+	top: 1em;
+	position: absolute;
+	padding-left: 2rem;
+}
+
+#locations .buttons .floors,
+#locations .buttons .people {
+	position: absolute;
+	top: 0;
+	height: 3em;
+	line-height: 3em;
+	white-space: nowrap;
+	width: 30%;
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#locations .buttons .floors {
+	padding-left: 35px;
+}
+
+#locations .buttons .people {
+	right: 0;
+	width: 70%;
+	text-align: right;
+	padding-right: 35px;
+}
+
+.buttons button {
+	z-index: 200;
+}
+
+.teamRoster {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	-webkit-transform: rotateZ(90deg);
+	-webkit-transform-origin: bottom left;
+	left: 5px;
+	top: 10px;
+}
+
+.slider::after {
+	content: '';
+	height: 10px;
+	background: white;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 16px;
+	left: 0;
+	width: 100%;
+}
+
+#zoomSlider {
+	width: 375px;
+	-webkit-transform: rotateZ(180deg);
+}
+
+#zoomSlider::before,
+#zoomSlider::after {
+	font-weight: 600;
+	color: #900;
+}
+
+#zoomSlider::after {
+	content: '+';
+	font-size: 15px;
+	position: relative;
+	top: -4px;
+}
+
+#zoomSlider::before {
+	content: '| ';
+	padding: 0 2px;
+}
+
+#zoomSlider::-webkit-slider-runnable-track {
+	height: 40px;
+}
+
+input[type="range"] ::-webkit-media-slider-thumb {
+	background: red;
+	display: none;
+}
+
+.savebuttons {
+	display: inline-block;
+	float: right;
+	line-height: 3em;
+	margin-right: 35px;
+}
+
+.notes.editing .notesText {
+	display: none;
+}
+
+.notes .editNotes {
+	display: none;
+}
+
+.notes.editing {
+	line-height: 1.5em;
+}
+
+.notes.editing .editNotes {
+	display: block;
+	width: 100%;
+	line-height: 2em;
+}
+
+.notes.editing .notesField,
+.notesWidget textarea {
+	width: 70%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	margin-right: 1ex;
+	padding: 1ex;
+	background: transparent;
+	border: none;
+	box-shadow: inset 2px 1px 4px #ccc;
+	text-align: left;
+	border-radius: 1ex;
+	height: auto;
+}
+
+.notes.editing i {
+	margin-right: 0.5ex;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.notes.editing br {
+	display: none;
+}
+
+#loading .spinner {
+	position: absolute;
+	font-size: 3em;
+	left: 50%;
+	right: 50%;
+	top: 50%;
+	-webkit-transform: translate(-0.5em, -0.5em);
+}
+
+#loading {
+	position: absolute;
+	z-index: 1000;
+	background: hsla(0,100%,100%,0.75);
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 26px;
+}
+
+.spinner i {
+	-webkit-animation: alwaysrotate 2.5s linear infinite;
+	-webkit-transform-origin: 0.45em 0.5em 0;
+	display: block;
+	height: 1em;
+	width: 1em;
+}
+
+@-webkit-keyframes alwaysrotate {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+#loading .ui-dialog {
+	background: hsla(0,0%,97.5%,0.5);
+	border-radius: 25px;
+	padding-top: 2.5em;
+	text-align: center;
+	position: absolute !important;
+	left: 0 !important;
+	right: 0 !important;
+	width: auto !important;
+	top: 0 !important;
+	bottom: 0 !important;
+}
+
+#loading .ui-dialog:focus {
+	outline: none;
+}
+
+#loading .ui-dialog p {
+	height: auto !important;
+	padding: 0.5em 0 1em;
+}
+
+#loading .ui-dialog-content {
+	font-weight: 600;
+	color: #c00;
+}
+
+#loading .ui-dialog button {
+	border: none;
+	border-radius: 5px;
+	padding: 0.5em 1em;
+	line-height: 1.5em;
+	margin: 0 1em 0 0;
+}
+
+#loading .ui-dialog button:last-child {
+	margin-right: 0;
+}
+
+#loading .ui-dialog button:active {
+	background-color: #900;
+	color: #fff;
+}
+
+#loading .ui-dialog .ui-dialog-titlebar {
+	display: none;
+}
+
+.toggleSwatches ul {
+	display: none;
+}
+
+#locations[data-mode="proposed"] .toggleSwatches ul[data-mode="proposed"].live,
+#locations[data-mode="current"] .toggleSwatches ul[data-mode="current"].live {
+	display: block;
+}
+
+#locations .key .teamId:not(:empty) {
+	margin-right: 0.5ex;
+}
+
+#locations .key .teamId:not(:empty)::after {
+	content: "›";
+	padding-left: 0.5ex;
+}
+
+.defaultuser .app-person {
+	display: none;
+}
+
+.defaultuser .key {
+	margin-top: 1em;
+}
+
+.defaultuser .staff-data-block:nth-child(1) {
+	margin-left: 3em;
+}
+
+.tabwindow::before {
+	content: "Allies and Morrison";
+	display: block;
+	position: absolute;
+	top: -2em;
+	right: 1.5em;
+	font-size: 0.85em;
+	font-weight: 600;
+	font-family: "Allies Morrison Futura ND", Arial, sans-serif
+}
+
+[data-edit="noedit"] ul.app-person,
+[data-edit="noedit"] .developmentTodo,
+[data-edit="noedit"] .savebuttons,
+[data-edit="noedit"] .developmentTodo,
+[data-edit="noedit"] .key input,
+[data-edit="noedit"] .key label
+
+{
+	display:none;
+}
+
+[ng-model] {
+	display: none;
+}

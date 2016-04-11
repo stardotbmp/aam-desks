@@ -1,0 +1,169 @@
+.desk {
+	stroke-width: 0.5px;
+}
+
+.desks .desk,
+.desks text {
+	cursor: pointer;
+}
+
+[data-mode="current"] .desks [data-free=true],
+[data-mode="proposed"] .desks [data-proposed-free=true] {
+  /*stroke: white;*/
+	fill: #ff0;
+	stroke: #c00;
+}
+
+[data-mode="current"] .desks [data-occupied=true],
+[data-mode="proposed"] .desks [data-proposed-occupied=true] {
+	fill: #f60;
+}
+
+[data-mode="current"] .desks [data-free=false],
+[data-mode="proposed"] .desks [data-proposed-free=false] {
+	stroke: white;
+	fill: #999;
+}
+
+[data-mode="current"] .desks [data-locked=true],
+[data-mode="proposed"] .desks [data-proposed-locked=true] {
+	fill: #ddd;
+}
+
+.desks [data-locked=true] .index {
+	display: none;
+}
+
+.scale,
+.northpoint {
+	stroke: #333;
+}
+
+.free:hover,
+.free.active,
+[data-occupied="true"][data-team]:hover,
+[data-occupied="true"][data-team].active,
+[data-proposed-occupied="true"][data-team]:hover,
+[data-proposed-occupied="true"][data-team].active {
+	fill: #f00 !important;
+	stroke: #f00;
+	stroke-width: 2px;
+	z-index: 2000;
+}
+
+.hiliteCircle {
+	fill: none;
+	stroke: #f00;
+	stroke-width: 3px;
+	stroke-dasharray: 4, 5.35;
+	stroke-linecap: round;
+	z-index: 5000;
+	pointer-events: none;
+	opacity: 0.8;
+}
+
+.deskUnit:not(.hilite) .hiliteCircle {
+	display: none;
+}
+
+text.initials,
+text.index {
+	text-anchor: middle;
+	dominant-baseline: central;
+	font-size: 4.5px;
+	font-family: Oswald, 'Open Sans', courier, monospace;
+	font-weight: 300;
+	stroke-width: 0;
+	fill: black;
+	text-rendering: optimizeLegibility;
+	pointer-events: none;
+}
+
+.free:hover  text.initials,
+.free.active text.initials,
+[data-occupied="true"][data-team]:hover text.initials,
+[data-occupied="true"][data-team].active text.initials,
+[data-proposed-occupied="true"][data-team]:hover text.initials,
+[data-proposed-occupied="true"][data-team].active text.initials,
+.free:hover  text.index,
+.free.active text.index,
+[data-occupied="true"][data-team]:hover text.index,
+[data-occupied="true"][data-team].active text.index,
+[data-proposed-occupied="true"][data-team]:hover text.index,
+[data-proposed-occupied="true"][data-team].active text.index,
+.hilite text.initials,
+.hilite text.index {
+	fill: #000;
+}
+
+[transform*="rotate(90"] .deskUnit text.index {
+	-webkit-transform: rotate(-90deg) translate(-12px);
+	-webkit-transform-origin: 0 50%;
+}
+
+[transform*="rotate(90"] .deskUnit text.initials {
+	-webkit-transform: rotate(-90deg) translate(-21px,-10.5px);
+	-webkit-transform-origin: 0 50%;
+}
+
+text.initials {
+	font-size: 4.5px;
+	font-weight: 600;
+}
+
+#desk-template {
+	display: none;
+}
+
+[data-mode="current"] .deskUnit .proposed,
+[data-mode="proposed"] .deskUnit .current {
+	visibility: hidden;
+}
+
+/* Specific Desk Fixes */
+
+.desks [data-floor^=isis] .A .deskUnit rect {
+	-webkit-transform: scale(1,1.15);
+}
+.desks [data-floor^=isis] .B .deskUnit rect {
+	-webkit-transform: scale(1,1.08);
+}
+.desks [data-floor^=isis] .C .deskUnit rect {
+	/*-webkit-transform: scale(1,1.);*/
+}
+
+
+
+/* SKINNY DESKS AMENDED OCTOBER 2015
+[id="85-3-37"] rect, [id="85-3-39"] rect {
+	-webkit-transform: scale(1,1.1);
+}
+[id="85-3-39"] rect {
+	-webkit-transform: translate(0px,-2.5px) scale(1,1.1);
+}
+[id="85-3-39"] circle {
+	-webkit-transform: translate(-9.75px,-5.5px);	
+}
+[id="85-3-37"] circle {
+	-webkit-transform: translate(-9.75px,-1.5px);	
+}
+[id="85-3-38"] {
+	-webkit-transform: translate(0px,27.25px)
+}
+[id="85-3-38"] rect {
+	-webkit-transform: scale(1,0.75);
+}
+[id="85-3-38"] circle {
+	-webkit-transform: translate(-9.75px,-7.5px);	
+}
+*/
+
+
+
+
+[id="85-0-1"] rect, [id="85-0-2"] rect {
+	-webkit-transform: scale(1,1.15);
+}
+[id="85-0-1"] circle, [id="85-0-2"] circle {
+	-webkit-transform: translate(-9.75px,-2.5px);	
+}
